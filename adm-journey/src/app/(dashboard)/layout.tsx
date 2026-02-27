@@ -1,67 +1,19 @@
-import type { Metadata } from 'next';
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Dashboard - ADM Journey',
-  description: 'Dashboard principal',
-};
+import type { ReactNode } from 'react'
+import { Sidebar } from '@/components/layout/Sidebar'
+import { Topbar } from '@/components/layout/Topbar'
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-lg">
-        <div className="p-6 border-b">
-          <h1 className="text-2xl font-bold text-blue-600">ADM Journey</h1>
-        </div>
+    <div className="flex min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-violet-100">
+      <Sidebar />
 
-        <nav className="mt-6">
-          <ul className="space-y-2 px-3">
-            <li>
-              <a href="/academic" className="block px-4 py-2 rounded hover:bg-gray-100">
-                📚 Acadêmico
-              </a>
-            </li>
-            <li>
-              <a href="/finance" className="block px-4 py-2 rounded hover:bg-gray-100">
-                💰 Financeiro
-              </a>
-            </li>
-            <li>
-              <a href="/summaries" className="block px-4 py-2 rounded hover:bg-gray-100">
-                📊 Resumos
-              </a>
-            </li>
-            <li>
-              <a href="/presentations" className="block px-4 py-2 rounded hover:bg-gray-100">
-                🎤 Apresentações
-              </a>
-            </li>
-            <li>
-              <a href="/journal" className="block px-4 py-2 rounded hover:bg-gray-100">
-                📖 Diário
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <div className="flex flex-1 flex-col">
+        <Topbar />
 
-      {/* Main Content */}
-      <main className="flex-1 overflow-auto">
-        {/* Top Bar */}
-        <header className="bg-white shadow-sm border-b">
-          <div className="px-6 py-4 flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-gray-900">🔔</button>
-              <button className="text-gray-600 hover:text-gray-900">⚙️</button>
-              <button className="text-gray-600 hover:text-gray-900">👤</button>
-            </div>
-          </div>
-        </header>
-
-        {/* Content Area */}
-        <div className="p-6">{children}</div>
-      </main>
+        <main className="animate-fade-in-up p-6 lg:p-10">{children}</main>
+      </div>
     </div>
-  );
+  )
 }

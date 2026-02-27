@@ -1,16 +1,9 @@
-// Placeholder Feature Files
-
-// Academic Feature Index
-export * from './types'
-export * from './utils'
-
-// Services
 export async function getStudentAcademic() {
-  // To be implemented
+  // TODO: integrar com backend
   return null
 }
 
 export async function updateSubjectGrade(subjectId: string, grade: number) {
-  // To be implemented
-  return null
+  // TODO: integrar com backend
+  return { subjectId, grade }
 }
